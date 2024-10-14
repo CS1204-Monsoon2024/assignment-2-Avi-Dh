@@ -154,7 +154,8 @@ class HashTable {
 
         void resize() {
             int mPrev = m;
-            m = m * 2; 
+            // m = m * 2; 
+            m = nextPrime(m * 2);
 
             Node** newT = new Node*[m]; 
             for (int i = 0; i < m; i++) {
@@ -179,6 +180,25 @@ class HashTable {
                 }
             }
             cout << endl;
+        }
+
+        bool isPrime(int num) {
+            if (num < 2) {
+                return false; 
+            }
+            for (int i = 2; i * i <= num; i++) {
+                if (num % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        int nextPrime(int num) {
+            while (isPrime(num) == false) {
+                num++;
+            }
+            return num;
         }
 
         int hash(int key) {
