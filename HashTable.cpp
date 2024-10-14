@@ -5,8 +5,6 @@ using namespace std;
 class Node {
     public:
         int key;
-        // if true indicates that element is deleted but search function should 
-        // continue search. if false search function should not continue searching
         int delete_flag;
 
         Node(int key) {
@@ -41,7 +39,7 @@ class HashTable {
 
             int index = hash(key);
             int i = 0;
-            float limit = (float)(m + 1) / (float)2;  // Max quadratic probing limit
+            float limit = (float)(m + 1) / (float)2; 
 
             while (i < limit) {
                 if (T[index] != nullptr && T[index]->delete_flag != true) {
@@ -66,7 +64,7 @@ class HashTable {
         void insertWithTable(int key, Node** table) {
             int index = hash(key);
             int i = 0;
-            float limit = (float)(m + 1) / (float)2;  // Max quadratic probing limit
+            float limit = (float)(m + 1) / (float)2;  
 
             while (i < limit) {
                 if (table[index] != nullptr && table[index]->delete_flag != true) {
