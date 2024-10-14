@@ -32,32 +32,6 @@ class HashTable {
             }    
         }
 
-        // void insert(int key) {
-        //     alpha = (float)n / (float)m;
-
-        //     if (alpha > 0.8) { 
-        //         resize();
-        //     }
-
-        //     int index = hash(key);
-        //     int i = 0;
-        //     float limit = (float)(m+1) / (float)2;
-
-        //     while (T[index] != nullptr && T[index]->delete_flag != true) {
-        //         if (T[index]->key == key) {
-        //             // T[index]->value = value; 
-        //             cout << "Duplicate key insertion is not allowed" << endl;
-        //             return;
-        //         }
-        //         i++;
-        //         index = (hash(key) + i * i) % m; 
-        //     }
-
-        //     T[index] = new Node(key);
-        //     n++; 
-        //     alpha = (float)n / (float)m; 
-        // }
-
         void insert(int key) {
             alpha = (float)n / (float)m;
 
@@ -182,23 +156,23 @@ class HashTable {
             cout << endl;
         }
 
-        bool isPrime(int num) {
-            if (num < 2) {
+        bool isPrime(int n) {
+            if (n < 2) {
                 return false; 
             }
-            for (int i = 2; i * i <= num; i++) {
-                if (num % i == 0) {
+            for (int i = 2; i * i <= n; i++) {
+                if (n % i == 0) {
                     return false;
                 }
             }
             return true;
         }
 
-        int nextPrime(int num) {
-            while (isPrime(num) == false) {
-                num++;
+        int nextPrime(int n) {
+            while (isPrime(n) == false) {
+                n++;
             }
-            return num;
+            return n;
         }
 
         int hash(int key) {
