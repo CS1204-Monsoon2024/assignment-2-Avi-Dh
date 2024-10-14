@@ -137,13 +137,12 @@ class HashTable {
         int search(int key) {
             int index = hash(key);
             int i = 0;
-            float limit = (float)(m+1) / (float)2;
+            float limit = (float)(m + 1) / 2;
 
             while (i < limit) {
                 if (T[index] == nullptr) {
                     return -1;
                 }
-
                 if (T[index]->key == key && T[index]->delete_flag == false) {
                     return index;
                 }
@@ -179,6 +178,7 @@ class HashTable {
                     cout << T[i]->key << " ";
                 }
             }
+            cout << endl;
         }
 
         int hash(int key) {
